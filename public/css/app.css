@@ -1,0 +1,253 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+@charset "UTF-8";
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  background-color: #ffffff;
+}
+
+* {
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  color: #282828;
+  box-sizing: border-box;
+}
+
+footer {
+  margin: 0;
+  padding: 30px;
+  width: 100%;
+  height: 50px;
+  background-color: #778899;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  color: white;
+  background-color: #778899;
+  margin: 0;
+  padding: 8px;
+}
+header h1 {
+  font-size: 3.5rem;
+  margin-left: 5%;
+}
+header h1 a {
+  text-decoration: none;
+}
+header nav {
+  margin-right: 5%;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header nav ul {
+  display: flex;
+  list-style-type: none;
+}
+header nav ul li {
+  margin-left: 20px;
+  display: flex;
+}
+header nav ul li a {
+  text-decoration: none;
+  text-align: left;
+}
+
+.container {
+  width: 50%;
+  height: 600px;
+}
+.container .image {
+  width: 100%;
+  height: 600px;
+  position: absolute;
+}
+.container .main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: inherit;
+  position: relative;
+}
+.container .main .title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.container .main .input-form {
+  display: block;
+  width: 250px;
+  height: 60px;
+  background-color: #dde7e8;
+  border-radius: 10px;
+  border: none;
+  padding: 8px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.measurement-container {
+  width: 100%;
+  height: 600px;
+  /* トレーニング結果数 */
+}
+.measurement-container .measurement-image {
+  width: 100%;
+  height: 600px;
+  position: absolute;
+}
+.measurement-container .measurement-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: inherit;
+  position: relative;
+}
+.measurement-container .timer-cnt {
+  width: 200px;
+  text-align: center;
+  font-size: 16rem;
+  margin: 0px;
+}
+.measurement-container .timer {
+  display: flex;
+  margin-top: 12px;
+}
+.measurement-container .timer .cnt-form {
+  display: block;
+  width: 80px;
+  height: 40px;
+  background-color: #e8e2dd;
+  border-radius: 10px;
+  border: none;
+  margin-left: 3px;
+  margin-right: 3px;
+  cursor: pointer;
+}
+.measurement-container .number-form {
+  display: block;
+  width: 180px;
+  height: 40px;
+  background-color: #dde7e8;
+  border-radius: 10px;
+  border: none;
+  padding: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.measurement-container .result-btn {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 180px;
+  height: 40px;
+  background-color: #FCACAC;
+  border-radius: 10px;
+  border: none;
+  padding: 8px;
+  display: inline-block;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+/* record.php */
+.record {
+  width: 100%;
+  height: 600px;
+}
+.record .record-image {
+  width: 100%;
+  height: 600px;
+  position: absolute;
+}
+.record .record-Main {
+  display: flex;
+  margin-top: 5%;
+  align-items: center;
+  flex-direction: column;
+  height: inherit;
+  position: relative;
+}
+.record .record-Main h1 {
+  margin-bottom: 10px;
+}
+.record .record-Main h2 {
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+}
+.record .record-Main table {
+  border: 1px solid #000;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 45%;
+}
+.record .record-Main table tr {
+  margin: 5px;
+}
+.record .record-Main table tr th {
+  padding: 0.5em 2em;
+  border: 1px solid #000;
+  background-color: rgba(150, 244, 250, 0.8901960784);
+  font-size: 1.6rem;
+  text-align: center;
+  width: 15%;
+  height: 50px;
+}
+.record .record-Main table tr td {
+  padding: 0.5em 2em;
+  border: 1px solid #000;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  height: 85px;
+}
+.record .record-Main table tr td .event {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.record .record-Main table tr td .delete-btn {
+  display: block;
+  text-align: right;
+  align-items: flex-end;
+}
+.record .record-Main table tr td p {
+  display: flex;
+  justify-content: right;
+  align-items: flex-end;
+}
+.record .record-Main p {
+  padding-top: 10px;
+}
+
+.logout-container {
+  width: 100%;
+  height: 800px;
+}
+.logout-container .logout-image {
+  width: 100%;
+  height: 880px;
+  position: absolute;
+}
+.logout-container .logout-main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: inherit;
+  position: absolute;
+}

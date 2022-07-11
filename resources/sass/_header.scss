@@ -1,0 +1,44 @@
+@charset "utf-8";
+header {
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    color: white;
+    background-color: #778899;
+    margin: 0;
+    padding: 8px;
+    
+    h1 {
+        font-size: 3.5rem;
+        margin-left: 5%;
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    nav {
+        margin-right: 5%;
+        margin-left: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        ul {
+            display: flex;
+            list-style-type: none;
+
+            li {
+                margin-left: 20px;
+                display: flex;
+                
+                a {
+                    text-decoration: none;
+                    text-align: left;
+                    
+                }                
+            }
+        }
+    }
+}
