@@ -49,12 +49,12 @@ Route::post('/situpresult', [App\Http\Controllers\SitupController::class, 'store
 
 Route::post('/squatresult', [App\Http\Controllers\SquatController::class, 'store'])->name('squatresult');
 
-Route::post('/squatresult', [App\Http\Controllers\SquatController::class, 'store'])->name('squatresult');
-
-
-
 // データ削除
 Route::post('destroy{id}', [App\Http\Controllers\PushupController::class, 'destroy'])->name('pushup.destroy');
+
+Route::post('destroy{id}', [App\Http\Controllers\SitupController::class, 'destroy'])->name('situp.destroy');
+
+Route::post('destroy{id}', [App\Http\Controllers\SquatController::class, 'destroy'])->name('squat.destroy');
 
 // Route::post('/pushup_result/delete/{id}', 'PushupController@exeDelete')->name('delete');
 

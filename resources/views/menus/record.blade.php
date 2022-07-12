@@ -57,14 +57,29 @@
                                 <div>
                                     <form action="{{ route('pushup.destroy', ['id'=>$pushupresults->id]) }}" method="POST">
                                         @csrf
-                                        <button type="submit"
-                                         {{-- class="btn btn-danger" --}}
-                                         >削除</button>  
+                                        <button type="submit">削除</button>  
                                     </form>
                                 </div>
                             </td>
-                            <td class="number"><b>{{ $situpresults->situp_result }}</b> 回</td>
-                            <td class="number"><b>{{ $squatresults->squat_result }}</b> 回</td>
+                            <td class="number">
+                                <b>{{ $situpresults->situp_result }}</b> 回
+                                <div>
+                                    <form action="{{ route('situp.destroy', ['id'=>$situpresults->id]) }}" method="POST">
+                                        @csrf
+                                        <button type="submit">削除</button> 
+                                    </form>
+                                </div>
+                            </td>
+                                
+                            <td class="number">
+                                <b>{{ $squatresults->squat_result }}</b> 回
+                                <div>
+                                    <form action="{{ route('squat.destroy', ['id'=>$squatresults->id]) }}" method="POST">
+                                        @csrf
+                                        <button type="submit">削除</button>  
+                                    </form>
+                                </div>
+                            </td>
                         </tr>
                     
                     <!-- 本日の合計記録 -->

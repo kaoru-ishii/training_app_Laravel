@@ -30,4 +30,13 @@ class SquatController extends Controller
 
         return redirect()->route('record');
     }
+
+    // 削除機能④
+    public function destroy($id)
+    {
+        $pushup = SquatResult::find($id);
+        $pushup->delete();
+
+        return redirect()->route('record');
+    }
 }
