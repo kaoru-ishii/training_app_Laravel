@@ -28,11 +28,11 @@ class SitupController extends Controller
         return redirect()->route('record');
     }
 
-    // 削除機能④
+    // 削除機能
     public function destroy($id)
     {
-        $pushup = SitupResult::find($id);
-        $pushup->delete();
+        $situp = SitupResult::find($id);
+        $situp->delete();
 
         return redirect()->route('record');
     }
