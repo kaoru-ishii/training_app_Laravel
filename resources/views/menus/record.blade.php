@@ -38,21 +38,7 @@
                     <!-- 直近の記録 -->
                         <tr>
                             <td class="event">直近の記録</td>
-                            <td class="daily_tr">
-                                {{-- <div>
-                                    <form method="post" action="/delete/{{ $pushupresult['id'] }}" id='delete-form'>
-                                        @csrf
-                                        <button><i id='delete-button' class=""fas fa-trash></i> </button>
-                                    </form>
-                                </div> --}}
-                                {{-- <div class="delete-btn">
-                                    <form method="post" action="{{ route('delete', $pushupresult->id) }}" onsubmit="return checkDelete()">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-primary" onclick=>削除</button>
-                                    </form>
-                                    <input type="submit" value="削除">
-                                </div> --}}
+                            <td>
                                 <b>{{ $pushupresults->pushup_result }}</b> 回
                                 <div>
                                     <form action="{{ route('pushup.destroy', ['id'=>$pushupresults->id]) }}" method="POST">
@@ -61,7 +47,7 @@
                                     </form>
                                 </div>
                             </td>
-                            <td class="number">
+                            <td>
                                 <b>{{ $situpresults->situp_result }}</b> 回
                                 <div>
                                     <form action="{{ route('situp.destroy', ['id'=>$situpresults->id]) }}" method="POST">
@@ -69,9 +55,8 @@
                                         <button type="submit">削除</button> 
                                     </form>
                                 </div>
-                            </td>
-                                
-                            <td class="number">
+                            </td>          
+                            <td>
                                 <b>{{ $squatresults->squat_result }}</b> 回
                                 <div>
                                     <form action="{{ route('squat.destroy', ['id'=>$squatresults->id]) }}" method="POST">
