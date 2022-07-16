@@ -41,29 +41,29 @@
                             <td>
                                 <b>{{ $pushupresults->pushup_result }}</b> 回
                                 <div>
-                                    <form action="{{ route('pushup.destroy', ['id'=>$pushupresults->id]) }}" method="POST">
+                                    <form action="{{ route('pushup.destroy', ['id'=>$pushup->id]) }}" method="POST">
                                         @csrf
                                         <button type="submit">削除</button>  
                                     </form>
                                 </div>
                             </td>
                             <td>
-                                <b>{{ $situpresults->situp_result }}</b> 回
+                                {{-- <b>{{ $situpresults->situp_result }}</b> 回
                                 <div>
                                     <form action="{{ route('situp.destroy', ['id'=>$situpresults->id]) }}" method="POST">
                                         @csrf
                                         <button type="submit">削除</button> 
                                     </form>
-                                </div>
+                                </div> --}}
                             </td>          
                             <td>
-                                <b>{{ $squatresults->squat_result }}</b> 回
+                                {{-- <b>{{ $squatresults->squat_result }}</b> 回
                                 <div>
                                     <form action="{{ route('squat.destroy', ['id'=>$squatresults->id]) }}" method="POST">
                                         @csrf
                                         <button type="submit">削除</button>  
                                     </form>
-                                </div>
+                                </div> --}}
                             </td>
                         </tr>
                     
