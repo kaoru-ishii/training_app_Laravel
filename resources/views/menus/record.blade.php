@@ -41,29 +41,30 @@
                             <td>
                                 <b>{{ $pushupresults->pushup_result }}</b> 回
                                 <div>
-                                    <form action="{{ route('pushup.destroy', ['id'=>$pushup->id]) }}" method="POST">
+                                    {{-- <form action="{{ route('pushup.destroy', ['id'=>$pushupresults->id]) }}" method="POST"> --}}
+                                    <form action="{{ route('pushup.destroy', ['id'=>$pushupresults->id]) }}" method="POST">
                                         @csrf
                                         <button type="submit">削除</button>  
                                     </form>
                                 </div>
                             </td>
                             <td>
-                                {{-- <b>{{ $situpresults->situp_result }}</b> 回
+                                <b>{{ $situpresults->situp_result }}</b> 回
                                 <div>
                                     <form action="{{ route('situp.destroy', ['id'=>$situpresults->id]) }}" method="POST">
                                         @csrf
                                         <button type="submit">削除</button> 
                                     </form>
-                                </div> --}}
+                                </div>
                             </td>          
                             <td>
-                                {{-- <b>{{ $squatresults->squat_result }}</b> 回
+                                <b>{{ $squatresults->squat_result }}</b> 回
                                 <div>
                                     <form action="{{ route('squat.destroy', ['id'=>$squatresults->id]) }}" method="POST">
                                         @csrf
                                         <button type="submit">削除</button>  
                                     </form>
-                                </div> --}}
+                                </div>
                             </td>
                         </tr>
                     
@@ -74,10 +75,26 @@
                                 $day = new DateTime();
                                 echo $day->format('d'.'日');
                             ?>の合計記録</td>
+
+                            @if($hasTodayPushup )
                             <td><b>{{ $pushupresults_sum_day->total_pushup_result }}</b> 回</td>
-                            <td><b>{{ $situpresults_sum_day->total_situp_result }} </b> 回</td>
-                            <td><b>{{ $squatresults_sum_day->total_squat_result }} </b> 回</td>
+                            @else
+                            <td>0回</td>
+                            @endif
+
+                            @if($hasTodaySitup)
+                            <td><b>{{ $situpresults_sum_day->total_situp_result }}</b> 回</td>
+                            @else
+                            <td>0回</td>
+                            @endif
+
+                            @if($hasTodaySquat)
+                            <td><b>{{ $squatresults_sum_day->total_squat_result }}</b> 回</td>
+                            @else
+                            <td>0回</td>
+                            @endif
                         </tr>
+
                     <!-- 過去最高記録 -->
                         <tr>
                             <td class="event">過去最高記録</td>
@@ -85,6 +102,7 @@
                             <td><b>{{ $situpresults_max->max('situp_result') }}</b> 回</td>
                             <td><b>{{ $squatresults_max->max('squat_result') }}</b> 回</td>
                         </tr>
+
                     <!-- 過去合計記録 -->
                         <tr>
                             <td class="event">過去合計記録</td>

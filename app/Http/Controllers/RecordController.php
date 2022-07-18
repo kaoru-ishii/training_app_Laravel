@@ -31,6 +31,22 @@ class RecordController extends Controller
         ->first();
 
         // 本日の合計記録
+
+        function hasTodayTraining ($tableName) {
+            $user = \Auth::user();
+            $today = date("Y/m/d");
+            $latestDate = DB::table($tableName)
+            ->where('user_id', $user['id'])
+            ->latest('updated_at')
+            ->first('updated_at');
+            $updatedAt = $latestDate->updated_at;
+            return $today === date('Y/m/d', strtotime($updatedAt));
+        }
+
+        $hasTodayPushup = hasTodayTraining('pushup_results');
+        $hasTodaySitup = hasTodayTraining('situp_results');
+        $hasTodaySquat = hasTodayTraining('squat_results');
+
         $pushupresults_sum_day = DB::table('pushup_results')
         ->selectRaw('DATE_FORMAT(updated_at, "%Y%m%d") AS date')
         ->selectRaw('sum(pushup_result) AS total_pushup_result')
@@ -55,33 +71,18 @@ class RecordController extends Controller
         ->where('user_id', $user['id'])
         ->first();
 
-        
-        // 例②
-        // $pushupresults_sum_day = DB::table('pushup_results')
-        // // ->where('user_id', $user['id'])
-        // ->groupBy('updated_at')
-        // ->having('pushup_result')
-        // ->sum('pushup_result');
-
-        // 例③
-        // $pushupresults_sum_day = DB::table('users', 'pushup_results')
-        // ->select('pushup_result')
-        // ->groupBy('user_id', 'update_at %Y-%m-%d')
-        // ->sum('pushup_result');
-        // dd($situpresults_sum_day);
-
 
         // 過去最高記録
         $pushupresults_max = PushupResult::where('pushup_result', PushupResult::max('pushup_result'))
-        ->where('user_id', $user['id'])
+        // ->where('user_id', $user['id'])
         ->first();
 
         $situpresults_max = SitupResult::where('situp_result', SitupResult::max('situp_result'))
-        ->where('user_id', $user['id'])
+        // ->where('user_id', $user['id'])
         ->first();
 
         $squatresults_max = SquatResult::where('squat_result', SquatResult::max('squat_result'))
-        ->where('user_id', $user['id'])
+        // ->where('user_id', $user['id'])
         ->first();
 
         // 過去合計記録
