@@ -17,6 +17,8 @@ class RecordController extends Controller
     public function index()
     {
         $user = \Auth::user();
+        // $user != null ? $user[] : "数字が空だよ";
+
         // 直近の記録
         $pushupresults = PushupResult::orderBy('created_at', 'desc')
         ->where('user_id', $user['id'])
@@ -44,6 +46,7 @@ class RecordController extends Controller
         }
 
         $hasTodayPushup = hasTodayTraining('pushup_results');
+        // dd($hasTodayPushup);
         $hasTodaySitup = hasTodayTraining('situp_results');
         $hasTodaySquat = hasTodayTraining('squat_results');
 
@@ -74,25 +77,28 @@ class RecordController extends Controller
 
         // 過去最高記録
         $pushupresults_max = PushupResult::where('pushup_result', PushupResult::max('pushup_result'))
-        // ->where('user_id', $user['id'])
+        ->where('user_id', $user['id'])
         ->first();
 
         $situpresults_max = SitupResult::where('situp_result', SitupResult::max('situp_result'))
-        // ->where('user_id', $user['id'])
+        ->where('user_id', $user['id'])
         ->first();
 
         $squatresults_max = SquatResult::where('squat_result', SquatResult::max('squat_result'))
-        // ->where('user_id', $user['id'])
+        ->where('user_id', $user['id'])
         ->first();
 
         // 過去合計記録
-        $pushupresults_sum = DB::table('pushup_results')->where('user_id', $user['id'])
+        $pushupresults_sum = DB::table('pushup_results')
+        ->where('user_id', $user['id'])
         ->sum('pushup_result');
 
-        $situpresults_sum = DB::table('situp_results')->where('user_id',$user['id'])
+        $situpresults_sum = DB::table('situp_results')
+        ->where('user_id',$user['id'])
         ->sum('situp_result');
 
-        $squatresults_sum = DB::table('squat_results')->where('user_id', $user['id'])
+        $squatresults_sum = DB::table('squat_results')
+        ->where('user_id', $user['id'])
         ->sum('squat_result');
 
 
@@ -116,3 +122,5 @@ class RecordController extends Controller
 
     
 }
+
+

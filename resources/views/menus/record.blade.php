@@ -41,7 +41,6 @@
                             <td>
                                 <b>{{ $pushupresults->pushup_result }}</b> 回
                                 <div>
-                                    {{-- <form action="{{ route('pushup.destroy', ['id'=>$pushupresults->id]) }}" method="POST"> --}}
                                     <form action="{{ route('pushup.destroy', ['id'=>$pushupresults->id]) }}" method="POST">
                                         @csrf
                                         <button type="submit">削除</button>  
@@ -76,22 +75,22 @@
                                 echo $day->format('d'.'日');
                             ?>の合計記録</td>
 
-                            @if($hasTodayPushup )
-                            <td><b>{{ $pushupresults_sum_day->total_pushup_result }}</b> 回</td>
+                            @if($hasTodayPushup ?? 'pushup_result' )
+                                <td><b>{{ $pushupresults_sum_day->total_pushup_result }}</b> 回</td>
                             @else
-                            <td>0回</td>
+                                <td><b>0 </b>回</td>
                             @endif
 
-                            @if($hasTodaySitup)
-                            <td><b>{{ $situpresults_sum_day->total_situp_result }}</b> 回</td>
+                            @if($hasTodaySitup ?? 'situp_result')
+                                <td><b>{{ $situpresults_sum_day->total_situp_result }}</b> 回</td>
                             @else
-                            <td>0回</td>
+                                <td><b>0 </b>回</td>
                             @endif
 
-                            @if($hasTodaySquat)
-                            <td><b>{{ $squatresults_sum_day->total_squat_result }}</b> 回</td>
+                            @if($hasTodaySquat ?? 'squat_result')
+                                <td><b>{{ $squatresults_sum_day->total_squat_result }}</b> 回</td>
                             @else
-                            <td>0回</td>
+                                <td><b>0 回</b></td>
                             @endif
                         </tr>
 
@@ -127,4 +126,6 @@
 </body>
 @extends('layouts.footer')
 </html>
+
+
 
