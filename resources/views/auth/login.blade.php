@@ -1,4 +1,32 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="ja">
+@extends('layouts.head')
+<header>
+    <h1>Training</h1>
+</header>
+<body>
+    <div class="container">
+    <img class="image" src="{{ asset('img/top.jpg') }}" >
+        <div class="main">
+            <h1 class="title">トレーニング日記</h1>
+            <h2 class="title">ログイン</h2>
+            <form action="{{ route('login') }}" method="POST">
+                @csrf
+                <input class="input-form" required type="email" name="email" placeholder="メールアドレス">
+                <input class="input-form" required type="password" name="password" placeholder="パスワード" minlength="8">
+                <input class="method-btn" type="submit" value="ログイン">
+            </form>
+            <p>登録がまだの方は<a href="{{ route('register') }}">こちら</a>から新規登録してください</p>
+        </div>
+    </div>
+</body>
+@extends('layouts.footer')
+</html>
+
+
+
+{{-- 既存のコード --}}
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -71,4 +99,5 @@
     </div>
 </div>
 @endsection
+ --}}
 

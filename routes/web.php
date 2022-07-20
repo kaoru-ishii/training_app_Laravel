@@ -14,17 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 // tecpitから参照
-Route::group(['middleware' => ['auth']], function() {
-    Route::get('/pushup', [PushupCountroller::class, 'create'])->name('pushup.create');
-});
-
-// Route::get('/', function () {
-//     return view('welcome');
+// Route::group(['middleware' => ['auth']], function() {
+//     Route::get('/pushup', [PushupCountroller::class, 'create'])->name('pushup.create');
 // });
+
+Route::get('/', function () {return redirect('/register');});
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/top', [App\Http\Controllers\RegisterController::class, 'index'])->name('register');
+
+Route::get('/top', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
 
 Route::get('/top', [App\Http\Controllers\TopController::class, 'index'])->name('top');
 

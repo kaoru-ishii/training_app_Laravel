@@ -17,7 +17,6 @@ class RecordController extends Controller
     public function index()
     {
         $user = \Auth::user();
-        // $user != null ? $user[] : "数字が空だよ";
 
         // 直近の記録
         $pushupresults = PushupResult::orderBy('created_at', 'desc')
@@ -33,7 +32,6 @@ class RecordController extends Controller
         ->first();
 
         // 本日の合計記録
-
         function hasTodayTraining ($tableName) {
             $user = \Auth::user();
             $today = date("Y/m/d");
@@ -46,7 +44,6 @@ class RecordController extends Controller
         }
 
         $hasTodayPushup = hasTodayTraining('pushup_results');
-        // dd($hasTodayPushup);
         $hasTodaySitup = hasTodayTraining('situp_results');
         $hasTodaySquat = hasTodayTraining('squat_results');
 
@@ -117,10 +114,4 @@ class RecordController extends Controller
             'squatresults_sum_day'
         ));        
     }
-
-
-
-    
 }
-
-

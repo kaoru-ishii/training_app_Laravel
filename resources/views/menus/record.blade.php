@@ -75,7 +75,26 @@
                                 echo $day->format('d'.'日');
                             ?>の合計記録</td>
 
-                            @if($hasTodayPushup ?? 'pushup_result' )
+                            @if($hasTodayPushup )
+                                <td><b>{{ $pushupresults_sum_day->total_pushup_result }}</b> 回</td>
+                            @else
+                                <td><b>0 </b>回</td>
+                            @endif
+
+                            @if($hasTodaySitup)
+                                <td><b>{{ $situpresults_sum_day->total_situp_result }}</b> 回</td>
+                            @else
+                                <td><b>0 </b>回</td>
+                            @endif
+
+                            @if($hasTodaySquat)
+                                <td><b>{{ $squatresults_sum_day->total_squat_result }}</b> 回</td>
+                            @else
+                                <td><b>0 回</b></td>
+                            @endif
+
+                            {{-- エラーはなくなるが`ifが効かなくなる --}}
+                            {{-- @if($hasTodayPushup ?? 'pushup_result' )
                                 <td><b>{{ $pushupresults_sum_day->total_pushup_result }}</b> 回</td>
                             @else
                                 <td><b>0 </b>回</td>
@@ -92,7 +111,7 @@
                             @else
                                 <td><b>0 回</b></td>
                             @endif
-                        </tr>
+                        </tr> --}}
 
                     <!-- 過去最高記録 -->
                         <tr>
