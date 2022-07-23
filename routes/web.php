@@ -18,15 +18,15 @@ use Illuminate\Support\Facades\Route;
 //     Route::get('/pushup', [PushupCountroller::class, 'create'])->name('pushup.create');
 // });
 
-Route::get('/', function () {return redirect('/register');});
+// Route::get('/', function () {return redirect('/register');});
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/top', [App\Http\Controllers\RegisterController::class, 'index'])->name('register');
+// Route::get('/top', [App\Http\Controllers\RegisterController::class, 'index'])->name('register');
 
-Route::get('/top', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
+// Route::get('/top', [App\Http\Controllers\LoginController::class, 'index'])->name('login');
 
 Route::get('/top', [App\Http\Controllers\TopController::class, 'index'])->name('top');
 
@@ -40,7 +40,7 @@ Route::get('/record', [App\Http\Controllers\RecordController::class, 'index'])->
 
 Route::get('/finish', [App\Http\Controllers\FinishController::class, 'index'])->name('finish');
 
-Route::get('/logout', 'Auth\LoginController@logout');
+// Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::post('/pushupresult', [App\Http\Controllers\PushupController::class, 'store'])->name('pushupresult');
 

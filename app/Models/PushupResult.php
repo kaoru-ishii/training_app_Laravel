@@ -6,7 +6,6 @@ use App\Models\User;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Http\Controllers\PushupController;
 
 // pushupモデル
 class PushupResult extends Model

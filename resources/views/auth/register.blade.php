@@ -16,7 +16,7 @@
                     <input class="input-form" required type="name" name="name" placeholder="ユーザー名" maxlength="25">
                     <input class="input-form" required type="email" name="email" placeholder="メールアドレス">
                     <input class="input-form" required type="password" name="password" placeholder="パスワード" minlength="8">
-                    <input class="input-form" required type="password" name="password_Confirmation" placeholder="パスワード再確認" minlength="8">
+                    <input class="input-form" required type="password" name="password_confirmation" placeholder="パスワード再確認" minlength="8">
                     {{-- <input class="method-btn" type="submit" value="新規登録"> --}}
                     <button type="submit" class="method-btn">
                         {{ __('新規登録') }}

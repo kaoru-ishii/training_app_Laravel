@@ -192,7 +192,6 @@ header nav ul li a {
 }
 .record .record-Main {
   display: flex;
-  margin-top: 5%;
   align-items: center;
   flex-direction: column;
   height: inherit;
