@@ -41,45 +41,45 @@
                             <td>
                                 @if($pushupresults)
                                     <b>{{ $pushupresults->pushup_result }}</b> 回
+                                    <div>
+                                        <form action="{{ route('pushup.destroy', ['id'=>$pushupresults->id]) }}" method="POST">
+                                            @csrf
+                                            <button type="submit">削除</button>  
+                                        </form>
+                                    </div>
                                 @else
                                     <b>0 </b>回
                                 @endif
-                                <div>
-                                    <form action="{{ route('pushup.destroy', ['id'=>$pushupresults->id]) }}" method="POST">
-                                        @csrf
-                                        <button type="submit">削除</button>  
-                                    </form>
-                                </div>
                             </td>
                             <td>
                                 @if($situpresults)
                                     <b>{{ $situpresults->situp_result }}</b> 回
+                                    <div>
+                                        @if($situpresults)
+                                        <form action="{{ route('situp.destroy', ['id'=>$situpresults->id]) }}" method="POST">
+                                            @csrf
+                                            <button type="submit">削除</button> 
+                                        </form>
+                                        @endif
+                                    </div>
                                 @else
                                     <b>0 </b>回
                                 @endif
-                                <div>
-                                    @if($situpresults)
-                                    <form action="{{ route('situp.destroy', ['id'=>$situpresults->id]) }}" method="POST">
-                                        @csrf
-                                        <button type="submit">削除</button> 
-                                    </form>
-                                    @endif
-                                </div>
                             </td>          
                             <td>
                                 @if($squatresults)
                                     <b>{{ $squatresults->squat_result }}</b> 回
+                                    <div>
+                                        @if($squatresults)
+                                        <form action="{{ route('squat.destroy', ['id'=>$squatresults->id]) }}" method="POST">
+                                            @csrf
+                                            <button type="submit">削除</button>  
+                                        </form>
+                                        @endif
+                                    </div>
                                 @else
                                     <b>0 </b>回
                                 @endif
-                                <div>
-                                    @if($squatresults)
-                                    <form action="{{ route('squat.destroy', ['id'=>$squatresults->id]) }}" method="POST">
-                                        @csrf
-                                        <button type="submit">削除</button>  
-                                    </form>
-                                    @endif
-                                </div>
                             </td>
                         </tr>
                     
