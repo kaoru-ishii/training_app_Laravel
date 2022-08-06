@@ -22,7 +22,7 @@ class RecordController extends Controller
         $pushupresults = PushupResult::orderBy('created_at', 'desc')
         ->where('user_id', $user['id'])
         ->first();
-
+        
         $situpresults = SitupResult::orderBy('created_at', 'desc')
         ->where('user_id', $user['id'])
         ->first();
@@ -39,7 +39,6 @@ class RecordController extends Controller
             ->where('user_id', $user['id'])
             ->latest('updated_at')
             ->first('updated_at');
-            // dd($latestDate);
             if(isset($latestDate)){
                 $updatedAt = $latestDate->updated_at;
                 return $today === date('Y/m/d', strtotime($updatedAt));
@@ -53,16 +52,28 @@ class RecordController extends Controller
         $hasTodaySquat = hasTodayTraining('squat_results');
 
         $pushupresults_sum_day = DB::table('pushup_results')
+        ->selectRaw('DATE_FORMAT(updated_at, "%Y%m%d") AS date')
+        ->selectRaw('sum(pushup_result) AS total_pushup_result')
+        ->groupBy('date')
+        ->orderBy('date', 'desc')
         ->where('user_id', $user['id'])
-        ->sum('pushup_result');
+        ->first();
 
         $situpresults_sum_day = DB::table('situp_results')
+        ->selectRaw('DATE_FORMAT(updated_at, "%Y%m%d") AS date')
+        ->selectRaw('sum(situp_result) AS total_situp_result')
+        ->groupBy('date')
+        ->orderBy('date', 'desc')
         ->where('user_id', $user['id'])
-        ->sum('situp_result');
+        ->first();
 
         $squatresults_sum_day = DB::table('squat_results')
+        ->selectRaw('DATE_FORMAT(updated_at, "%Y%m%d") AS date')
+        ->selectRaw('sum(squat_result) AS total_squat_result')
+        ->groupBy('date')
+        ->orderBy('date', 'desc')
         ->where('user_id', $user['id'])
-        ->sum('squat_result');
+        ->first();
 
         // 過去最高記録
         $pushupresults_max = DB::table('pushup_results')
@@ -90,20 +101,6 @@ class RecordController extends Controller
         ->where('user_id', $user['id'])
         ->sum('squat_result');
 
-
-        // $pushupresults_max = PushupResult::where('pushup_result', PushupResult::max('pushup_result'))
-        // ->where('user_id', $user['id'])
-        // ->first();
-
-        // $situpresults_max = SitupResult::where('situp_result', SitupResult::max('situp_result'))
-        // ->where('user_id', $user['id'])
-        // ->first();
-
-        // $squatresults_max = SquatResult::where('squat_result', SquatResult::max('squat_result'))
-        // ->where('user_id', $user['id'])
-        // ->first();
-
-
         return view('menus.record', compact(
             'pushupresults',
             'situpresults',
@@ -116,7 +113,10 @@ class RecordController extends Controller
             'squatresults_sum',
             'pushupresults_sum_day',
             'situpresults_sum_day',
-            'squatresults_sum_day'
+            'squatresults_sum_day',
+            'hasTodayPushup',
+            'hasTodaySitup',
+            'hasTodaySquat'
         ));        
     }
 }

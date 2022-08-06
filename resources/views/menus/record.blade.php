@@ -9,7 +9,6 @@
         <nav>
             <ul>
                 <li><a href="{{ route('top') }}">Menu</a></li>
-                {{-- <li><a href="{{ route('logout') }}" >ログアウト</a></li> --}}
                 <li>
                     <a href={{ route('logout') }} onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
@@ -92,50 +91,29 @@
                             ?>の合計記録</td>
 
                             <td>
-                                @if($hasTodayPushup ?? 'pushup_result')
-                                    <b>{{ $pushupresults_sum_day }}</b> 回
-                                @else
-                                    <b>0 </b>回
-                                @endif
-                            </td>
-
-                            <td>    
-                                @if($hasTodaySitup ?? 'situp_result')
-                                    <b>{{ $situpresults_sum_day }}</b> 回
+                                @if($hasTodayPushup)
+                                    <b>{{ $pushupresults_sum_day->total_pushup_result }}</b> 回   
                                 @else
                                     <b>0 </b>回
                                 @endif
                             </td>
 
                             <td>
-                                @if($hasTodaySquat ?? 'squat_result')
-                                    <b>{{ $squatresults_sum_day }}</b> 回
+                                @if($hasTodaySitup)
+                                    <b>{{ $situpresults_sum_day->total_situp_result }}</b> 回
                                 @else
-                                    <b>0 回</b>
+                                    <b>0 </b>回
+                                @endif
+                            </td>
+
+                            <td>
+                                @if($hasTodaySquat)
+                                    <b>{{ $squatresults_sum_day->total_squat_result }}</b> 回
+                                @else
+                                    <b>0 </b>回
                                 @endif
                             </td>
                         </tr>
-
-                            {{-- エラーはなくなるが`ifが効かなくなる --}}
-                        {{-- <tr>
-                            @if($hasTodayPushup ?? '' ?? 'pushup_result' )
-                                <td><b>{{ $pushupresults_sum_day->total_pushup_result }}</b> 回</td>
-                            @else
-                                <td><b>0 </b>回</td>
-                            @endif
-
-                            @if($hasTodaySitup ?? '' ?? 'situp_result')
-                                <td><b>{{ $situpresults_sum_day->total_situp_result }}</b> 回</td>
-                            @else
-                                <td><b>0 </b>回</td>
-                            @endif
-
-                            @if($hasTodaySquat ?? '' ?? 'squat_result')
-                                <td><b>{{ $squatresults_sum_day->total_squat_result }}</b> 回</td>
-                            @else
-                                <td><b>0 回</b></td>
-                            @endif
-                        </tr> --}}
 
                     <!-- 過去最高記録 -->
                     <tr>
