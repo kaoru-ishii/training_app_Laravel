@@ -9,13 +9,6 @@
         <nav>
             <ul>
                 <li><a href="{{ route('top') }}">Menu</a></li>
-                {{-- <li><a href="{{ route('logout') }}" >ログアウト</a></li> --}}
-                {{-- <li>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <input type="submit" value="ログアウト">
-                    </form>
-                </li> --}}
                 <li>
                     <a href={{ route('logout') }} onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
@@ -37,12 +30,6 @@
             <form action="{{ route('top') }}">
                 <input class="input-form" type="submit" value="メニューに戻る" size=50 style="font-size:20px;">
             </form>
-            {{-- <form action="{{ route('logout') }}" method="POST">
-                @csrf
-                <input type="submit" value="ログアウト">
-                
-            </form>
-            <a href="{{ route('logout') }}">ログアウト</a> --}}
         </div>
     </div>
 </body>

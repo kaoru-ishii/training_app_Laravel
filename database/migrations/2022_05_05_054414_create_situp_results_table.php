@@ -15,8 +15,8 @@ class CreateSitupResultsTable extends Migration
     {
         Schema::create('situp_results', function (Blueprint $table) {
             $table->id();
+            $table->string('situp_result')->comment('腹筋回数');
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('situp_result')->comment('腹筋回数');
             // 下記の書き方でcreated_atとupdated_atが作成される。
             $table->timestamps();
         });

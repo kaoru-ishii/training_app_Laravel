@@ -14,10 +14,9 @@ class CreatePushupResultsTable extends Migration
     public function up()
     {
         Schema::create('pushup_results', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('pushup_result', 2);
+            $table->id();
+            $table->string('pushup_result')->comment('腕立て回数');
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('pushup_result')->comment('腕立て回数');
             // 下記の書き方でcreated_atとupdated_atが作成される。
             $table->timestamps();
         });

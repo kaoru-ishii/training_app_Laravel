@@ -15,8 +15,8 @@ class CreateSquatResultsTable extends Migration
     {
         Schema::create('squat_results', function (Blueprint $table) {
             $table->id();
+            $table->string('squat_result')->comment('スクワット回数');
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('squat_result')->comment('スクワット回数');
             // 下記の書き方でcreated_atとupdated_atが作成される。
             $table->timestamps();
         });
